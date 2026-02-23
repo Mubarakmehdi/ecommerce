@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - E-Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Contact Section */
+        .contact-section{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:80px 20px;
+        }
+
+        .contact-container{
+            width:380px;
+            background:#fff;
+            border-radius:10px;
+            box-shadow:0 15px 25px rgba(0,0,0,0.15);
+            padding:30px;
+        }
+
+        .contact-title{
+            text-align:center;
+            margin-bottom:20px;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .input-box{
+            margin-bottom:15px;
+        }
+
+        .input-box input,
+        .input-box textarea{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            outline:none;
+        }
+
+        .btn{
+            width:100%;
+            padding:10px;
+            background:#4e73df;
+            border:none;
+            color:white;
+            font-size:16px;
+            border-radius:5px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#2e59d9;
+        }
+
+        @media(max-width:480px){
+            .contact-container{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="nav-item">
+                <a href="index.html">Home</a>
+                <a href="product.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="account.html">Account</a>
+            </div>
+            <a href="cart.html">
+                <img src="pictures/cart.png" width="30px" height="30px">
+            </a>
+            <label class="menu-icon" for="menu-toggle">
+                <img src="pictures/menu.png">
+            </label>
+        </div>
+        <input type="checkbox" id="menu-toggle"/>
+
+        <div class="hidden-nav-item">
+            <a href="index.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="connection.html">Contact</a>
+            <a href="account.html">Account</a>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="contact-section">
+
+<form class="contact-container" id="ConnectionForm"
+      action="https://formsubmit.co/mubarakmehdi7@gmail.com"
+      method="POST">
+
+    <div class="contact-title">Connect With Us</div>
+
+    <div class="input-box">
+        <input type="text" name="Full Name" placeholder="Full Name" required>
+    </div>
+
+    <div class="input-box">
+        <input type="email" name="Email" placeholder="Email" required>
+    </div>
+
+    <div class="input-box">
+        <input type="tel" name="Phone" placeholder="Phone Number" required>
+    </div>
+
+    <div class="input-box">
+        <textarea name="Description" rows="3" placeholder="Description" required></textarea>
+    </div>
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit" class="btn">Send</button>
+</form>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footercontainer">
+
+        <div class="footerColumn footerColumn1">
+            <h3>Download Our App</h3>
+            <p>Available on both Android and iOS platforms.</p>
+            <div class="FooterStoreContainer">
+                <a href="#"><img src="pictures/play-store.png"></a>
+                <a href="#"><img src="pictures/app-store.png"></a>
+            </div>
+        </div>
+
+        <div class="footerColumn footerColumn2">
+            <h3>Useful Links</h3>
+            <p>Coupons</p>
+            <p>Blog Post</p>
+            <p>Return Policy</p>
+            <p>Join Affiliate</p>
+        </div>
+
+        <div class="footerColumn footerColumn3">
+            <h3>Follow Us</h3>
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>Twitter</p>
+            <p>Youtube</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const form = document.getElementById('ConnectionForm');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            alert('✅ Message sent successfully!');
+            form.reset();
+        } else {
+            alert('❌ Submission failed.');
+        }
+    } catch (error) {
+        alert('❌ Network error.');
+    }
+});
+</script>
+
+</body>
+</html>
